@@ -5,20 +5,20 @@ services:
   apples:
     image: caddy:2-alpine
     volumes:
-      -v ${PWD}/sources/docker-demo-apples/site:/srv \
-      -v caddy_data:/data
+      - ${PWD}/sources/docker-demo-apples/site/:/usr/share/caddy/:ro
+      - caddy_data:/data
 
   banana:
     image: caddy:2-alpine
     volumes:
-      -v ${PWD}/sources/docker-demo-banana/site:/srv \
-      -v caddy_data:/data
+      - ${PWD}/sources/docker-demo-banana/site/:/usr/share/caddy/:ro
+      - caddy_data:/data
 
   carrot:
     image: caddy:2-alpine
     volumes:
-      -v ${PWD}/sources/docker-demo-carrot/site:/srv \
-      -v caddy_data:/data
+      - ${PWD}/sources/docker-demo-carrot/site/:/usr/share/caddy/:ro
+      - caddy_data:/data
 
   proxy:
     image: caddy:2-alpine
@@ -30,5 +30,9 @@ services:
       - banana
       - carrot
     volumes:
-      - ${PWD}/Caddyfile:/etc/caddy:ro
-      -v caddy_data:/data
+      - ${PWD}/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+
+volumes:
+  caddy_data:
+    external: true
