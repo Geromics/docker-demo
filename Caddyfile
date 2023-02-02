@@ -1,0 +1,12 @@
+apples.localhost {
+  reverse_proxy apples:80
+}
+
+banana.localhost {
+  reverse_proxy banana:80
+}
+
+carrot.localhost {
+  reverse_proxy carrot:80
+}
+
