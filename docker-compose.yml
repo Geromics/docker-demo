@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+
+  apples:
+    image: caddy:2-alpine
+    volumes:
+      -v ${PWD}/sources/docker-demo-apples/site:/srv \
+      -v caddy_data:/data
+
+  banana:
+    image: caddy:2-alpine
+    volumes:
+      -v ${PWD}/sources/docker-demo-banana/site:/srv \
+      -v caddy_data:/data
+
+  carrot:
+    image: caddy:2-alpine
+    volumes:
+      -v ${PWD}/sources/docker-demo-carrot/site:/srv \
+      -v caddy_data:/data
+
+  proxy:
+    image: caddy:2-alpine
+    ports:
+      - '80:80'
+      - '443:443'
+    depends-on:
+      - apples
+      - banana
+      - carrot
+    volumes:
+      - ${PWD}/Caddyfile:/etc/caddy:ro
+      -v caddy_data:/data

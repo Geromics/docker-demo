@@ -1,0 +1,12 @@
+apples.covquest.geromics.co.uk {
+  reverse_proxy apples:80
+}
+
+banana.covquest.geromics.co.uk {
+  reverse_proxy banana:80
+}
+
+carrot.covquest.geromics.co.uk {
+  reverse_proxy carrot:80
+}
+
