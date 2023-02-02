@@ -1,12 +1,12 @@
 [submodule "sources/docker-demo-apples"]
 	path = sources/docker-demo-apples
 	url = git@github.com:Geromics/docker-demo-apples.git
-	branch = main
+	branch = development
 [submodule "sources/docker-demo-banana"]
 	path = sources/docker-demo-banana
 	url = git@github.com:Geromics/docker-demo-banana.git
-	branch = main
+	branch = development
 [submodule "sources/docker-demo-carrot"]
 	path = sources/docker-demo-carrot
 	url = git@github.com:Geromics/docker-demo-carrot.git
-	branch = main
+	branch = development
